@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sereluna – Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Red Hat Display', sans-serif;
-      background: linear-gradient(to bottom right, #fdf9f6, #f0e9e2);
-      color: #333;
-      text-align: center;
+      background: linear-gradient(to bottom right, #fffdfb, #f4eee9);
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
-      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      color: #2c2c2c;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 650px;
+      z-index: 2;
+      animation: fadeIn 2.5s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -28,61 +38,155 @@
     }
 
     .logo {
-      font-size: 4.5rem;
+      font-size: 5rem;
       font-weight: 900;
-      color: #2d2d2d;
-      margin-bottom: 10px;
-      letter-spacing: 4px;
-      animation: float 3s ease-in-out infinite;
+      letter-spacing: 6px;
+      color: #2c2c2c;
+      animation: float 4s ease-in-out infinite;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
     }
 
     .tagline {
       font-style: italic;
-      color: #a27c6b;
-      font-size: 1.3rem;
-      margin-bottom: 40px;
-      animation: fadeIn 3s ease-in-out;
+      color: #b98b74;
+      font-size: 1.5rem;
+      margin-top: -10px;
+      margin-bottom: 25px;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.7rem;
       margin-bottom: 10px;
-      color: #444;
+      color: #3a3a3a;
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      color: #666;
+      font-size: 1.1rem;
+      color: #5a5a5a;
+      margin-bottom: 30px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #a17965;
+      margin-bottom: 35px;
+    }
+
+    .glass-button {
+      display: inline-block;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(162, 124, 107, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    .glass-button:hover {
+      background: rgba(162, 124, 107, 0.85);
+      box-shadow: 0 8px 20px rgba(162, 124, 107, 0.3);
+    }
+
+    .socials {
+      margin-top: 40px;
     }
 
     .socials a {
       margin: 0 12px;
-      text-decoration: none;
+      font-size: 1.3rem;
       color: #3a3a3a;
-      font-size: 1.4rem;
+      text-decoration: none;
       border-bottom: 2px solid transparent;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .socials a:hover {
       color: #a27c6b;
-      border-bottom: 2px solid #a27c6b;
+      border-color: #a27c6b;
+    }
+
+    /* Elegant falling leaf animation */
+    .leaves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background: url('https://i.imgur.com/YbK9Bks.png') no-repeat center/contain;
+      opacity: 0.4;
+      animation: leafFall 14s linear infinite;
+    }
+
+    @keyframes leafFall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Position leaves differently */
+    .leaf:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .leaf:nth-child(2) { left: 30%; animation-delay: 3s; }
+    .leaf:nth-child(3) { left: 50%; animation-delay: 6s; }
+    .leaf:nth-child(4) { left: 70%; animation-delay: 9s; }
+    .leaf:nth-child(5) { left: 90%; animation-delay: 12s; }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 3.5rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+      }
+
+      .glass-button {
+        padding: 10px 24px;
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="logo">Sereluna</div>
-  <div class="tagline">Softwear for the Soul</div>
-  <h1>Coming Soon</h1>
-  <p>We’re preparing something magical for you...</p>
-  <div class="socials">
-    <a href="https://www.instagram.com/sereluna_pk" target="_blank">Instagram</a>
+  <div class="container">
+    <div class="logo">Sereluna</div>
+    <div class="tagline">Softwear for the Soul</div>
+    <h1>Coming Soon</h1>
+    <p>We’re preparing something magical just for you.</p>
+    <div class="quote">“Style is a reflection of your soul — let it shine.”</div>
+    <a href="https://www.instagram.com/sereluna_pk" class="glass-button" target="_blank">Follow Us on Instagram</a>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/sereluna_pk" target="_blank">Instagram</a>
+    </div>
   </div>
 </body>
 </html>
